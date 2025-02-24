@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Forever Love, Inna ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom, #ff99cc, #ff6699);
+            color: white;
+            padding: 50px;
+            animation: fadeIn 2s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1 {
+            font-size: 3em;
+            animation: glow 2s infinite alternate;
+            color: #ff4d6d;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px white; }
+            to { text-shadow: 0 0 20px red; }
+        }
+        .quiz {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            animation: popIn 1s ease-out;
+        }
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        button {
+            background: #ff4d6d;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin: 10px;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+        button:hover {
+            background: #e6004c;
+            transform: scale(1.1);
+        }
+        .final-message, .surprise {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #e6004c;
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 2s ease-in;
+        }
+        .memory {
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .memory img {
+            width: 80%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            transition: transform 0.5s ease-in-out;
+        }
+        .memory img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Inna, You Are My Forever & Always ❤️</h1>
+    <p>Here’s a special memory of us, one I will cherish forever. 💖</p>
+    
+    <div class="memory">
+        <img src="Snapchat-317012856.jpg" alt="Our Beautiful Memory">
+    </div>
+    
+    <div class="quiz">
+        <h2>Are We Meant to Be?</h2>
+        <p id="question"></p>
+        <button id="option1" onclick="checkAnswer(true)"></button>
+        <button id="option2" onclick="checkAnswer(false)"></button>
+    </div>
+    
+    <h2 class="final-message" id="finalMessage">Inna, you are my forever love, my heart, my everything. I will always choose you. 💖</h2>
+    <h2 class="surprise" id="surpriseMessage">💍 Surprise! One day, I want to marry you! 💍</h2>
+    
+    <script>
+        const questions = [
+            { text: "Inna, do I love you more than words can say?", correct: "Yes! With all my heart and soul! 💕" },
+            { text: "Are you the most beautiful, amazing person in my life?", correct: "Absolutely! You are my everything! 💖" },
+            { text: "Will I stand by your side no matter what?", correct: "Forever and ever, my love! 💕" }
+        ];
+        let currentQuestion = 0;
+        
+        function loadQuestion() {
+            if (currentQuestion < questions.length) {
+                document.getElementById("question").innerText = questions[currentQuestion].text;
+                document.getElementById("option1").innerText = "Yes";
+                document.getElementById("option2").innerText = "No";
+            } else {
+                document.querySelector(".quiz").style.display = "none";
+                document.getElementById("finalMessage").style.display = "block";
+                setTimeout(() => {
+                    document.getElementById("surpriseMessage").style.display = "block";
+                }, 3000);
+            }
+        }
+        
+        function checkAnswer(correct) {
+            if (correct) {
+                alert(questions[currentQuestion].correct);
+            } else {
+                alert("Oh no, my love! Try again 😘");
+                return;
+            }
+            currentQuestion++;
+            loadQuestion();
+        }
+        
+        document.addEventListener("DOMContentLoaded", loadQuestion);
+    </script>
+</body>
+</html>
